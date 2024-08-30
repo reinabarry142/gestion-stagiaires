@@ -1,0 +1,33 @@
+
+.form-container {
+  box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 1px solid #454545;
+}
+
+
+input, select, button {
+  border: 1px solid #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.full-width-button {
+  width: 100%;
+}
+
+
+button {
+  box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.container-sm{
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+

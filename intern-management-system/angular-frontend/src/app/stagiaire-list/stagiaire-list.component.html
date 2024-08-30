@@ -1,0 +1,63 @@
+
+<h1>Stagiaire Liste</h1>
+
+<div class="container">
+
+  <div>
+      <form (ngSubmit)="goToStagiaire()">
+          <div class="form-group col-md-6 inline">
+              <input [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Rechercher par ID">
+              <button class="btn btn-secondary" type="submit">Rechercher</button>
+          </div>
+      </form>
+  </div>
+  <br>
+  <br>
+  <div>
+      <table style="margin-bottom: 50px;" class="table table-responsive table-striped border-dark">
+          <thead class="table-dark">
+              <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Date de Naissance</th>
+                <th>Niveau</th>
+                <th>École/Faculté</th>
+                <th>Prochain Diplôme</th>
+                <th>Année</th>
+                <th>Photo</th> <!-- Nouvelle colonne Photo -->
+                <th>Actions</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let stagiaire of stagiaires">
+                  <td>{{stagiaire.id}}</td>
+                  <td>{{stagiaire.prenom}}</td>
+                  <td>{{stagiaire.nom}}</td>
+                  <td>{{stagiaire.email}}</td>
+                  <td>{{stagiaire.dateNaissance | date:'yyyy-MM-dd'}}</td>
+                  <td>{{stagiaire.niveau}}</td>
+                  <td>{{stagiaire.ecoleFaculte}}</td>
+                  <td>{{stagiaire.prochainDiplome}}</td>
+                  <td>{{stagiaire.annee}}</td>
+                  <td>
+                      <!-- Display the photo -->
+                      <img [src]="stagiaire.photoUrl" alt="Stagiaire Photo" width="50" height="50">
+                  </td>
+                  <td>
+                      <button (click)="updateStagiaire(stagiaire.id)" class="btn btn-secondary btn-sm">Mise à jour</button>
+                      <button (click)="deleteStagiaire(stagiaire.id)" class="btn btn-danger btn-sm" style="margin-left: 10px">Supprimer</button>
+                      <button (click)="detailsOfStagiaire(stagiaire.id)" class="btn btn-success btn-sm" style="margin-left: 10px">Voir</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <br><br><br><br>
+  </div>
+
+</div>
+
+
+

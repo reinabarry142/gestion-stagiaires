@@ -1,0 +1,105 @@
+<div class="container-sm">
+  <div class="form-wrapper">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-container">
+      <div class="form-group">
+        <label><b>ID</b></label>
+        <input type="number" class="form-control" id="id" [(ngModel)]="stagiaire.id" name="id" required
+            #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.errors }" />
+        <div *ngIf="f.submitted && id.errors" class="invalid-feedback">
+            <div *ngIf="id.errors['required']">ID is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Prenom</b></label>
+        <input type="text" class="form-control" id="prenom" [(ngModel)]="stagiaire.prenom" name="prenom"
+            required minlength="3" #prenom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prenom.errors }" />
+        <div *ngIf="f.submitted && prenom.errors" class="invalid-feedback">
+            <div *ngIf="prenom.errors['required']">First name is required</div>
+            <div *ngIf="prenom.errors['minlength']">First name must be at least 3 characters long</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Nom</b></label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="stagiaire.nom" name="nom" required
+            #nom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nom.errors }">
+        <div *ngIf="f.submitted && nom.errors" class="invalid-feedback">
+            <div *ngIf="nom.errors['required']">Last name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Email </b></label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="stagiaire.email" name="email"
+            required email #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" />
+        <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+            <div *ngIf="email.errors['required']">Email is required</div>
+            <div *ngIf="email.invalid">Invalid email format</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Date de naissance</b></label>
+        <input type="date" class="form-control" id="dateNaissance" [(ngModel)]="stagiaire.dateNaissance"
+            name="dateNaissance" required #dateNaissance="ngModel" [ngClass]="{ 'is-invalid': f.submitted && dateNaissance.errors }">
+        <div *ngIf="f.submitted && dateNaissance.errors" class="invalid-feedback">
+            <div *ngIf="dateNaissance.errors['required']">Date of Birth is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Niveau</b></label>
+        <input type="text" class="form-control" id="niveau" [(ngModel)]="stagiaire.niveau" name="niveau"
+            required #niveau="ngModel" [ngClass]="{ 'is-invalid': f.submitted && niveau.errors }">
+        <div *ngIf="f.submitted && niveau.errors" class="invalid-feedback">
+            <div *ngIf="niveau.errors['required']">Level is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Ecole/Faculté</b></label>
+        <input type="text" class="form-control" id="ecoleFaculte" [(ngModel)]="stagiaire.ecoleFaculte" name="ecoleFaculte"
+            required #ecoleFaculte="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ecoleFaculte.errors }">
+        <div *ngIf="f.submitted && ecoleFaculte.errors" class="invalid-feedback">
+            <div *ngIf="ecoleFaculte.errors['required']">School/Faculty is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Prochain diplome</b></label>
+        <input type="text" class="form-control" id="prochainDiplome" [(ngModel)]="stagiaire.prochainDiplome" name="prochainDiplome"
+            required #prochainDiplome="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prochainDiplome.errors }">
+        <div *ngIf="f.submitted && prochainDiplome.errors" class="invalid-feedback">
+            <div *ngIf="prochainDiplome.errors['required']">Next Degree is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Année</b></label>
+        <input type="number" class="form-control" id="annee" [(ngModel)]="stagiaire.annee" name="annee"
+            required #annee="ngModel" [ngClass]="{ 'is-invalid': f.submitted && annee.errors }">
+        <div *ngIf="f.submitted && annee.errors" class="invalid-feedback">
+            <div *ngIf="annee.errors['required']">Year is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><b>Photo</b></label>
+        <input required type="file" class="form-control" id="photo" (change)="onFileChange($event)" accept="image/*" />
+        <div *ngIf="photoError" class="invalid-feedback">
+            {{ photoError }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="button-container">
+            <button class="btn btn-success full-width-button" type="submit" [disabled]="!f.form.valid || !fileSelected">Envoyer</button>
+            <button type="button" (click)="goToStagiaireList()" class="btn btn-danger full-width-button">Annuler</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+<br>

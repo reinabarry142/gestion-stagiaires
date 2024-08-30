@@ -1,0 +1,72 @@
+
+
+
+<br>
+<div class="container">
+
+  <h3>Stagiaire Details</h3>
+  <br>
+  <div class="box">
+
+    <div>
+      <img [src]="stagiaire.photoUrl" alt="Stagiaire Image" class="img-thumbnail">
+    </div>
+
+    <div>
+      <table class="table table-striped border-dark">
+        <thead class="table-dark">
+          <tr>
+            <th>Attribut</th>
+            <th>Valeur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>ID</b></td>
+            <td>{{stagiaire.id}}</td>
+          </tr>
+          <tr>
+            <td><b>Prenom</b></td>
+            <td>{{stagiaire.prenom}}</td>
+          </tr>
+          <tr>
+            <td><b>Nom</b></td>
+            <td>{{stagiaire.nom}}</td>
+          </tr>
+          <tr>
+            <td><b>Email</b></td>
+            <td>{{stagiaire.email}}</td>
+          </tr>
+          <tr>
+            <td><b>Date de Naissance</b></td>
+            <td>{{stagiaire.dateNaissance | date:'yyyy-MM-dd'}}</td>
+          </tr>
+          <tr>
+            <td><b>Niveau</b></td>
+            <td>{{stagiaire.niveau}}</td>
+          </tr>
+          <tr>
+            <td><b>Ecole/Faculté</b></td>
+            <td>{{stagiaire.ecoleFaculte}}</td>
+          </tr>
+          <tr>
+            <td><b>Prochain diplome</b></td>
+            <td>{{stagiaire.prochainDiplome}}</td>
+          </tr>
+          <tr>
+            <td><b>Année</b></td>
+            <td>{{stagiaire.annee}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a routerLink="/updating-by-id/{{stagiaire.id}}" id="btn1" class="btn btn-secondary">Mettre à jour Details</a>
+      <a routerLink="/show-all-stagiaires" id="btn2" class="btn btn-danger">Retour</a>
+    </div>
+
+  </div>
+</div>
+<br><br><br><br>
+
+
+

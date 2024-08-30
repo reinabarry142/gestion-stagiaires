@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-expand-sm border-bottom border-body" data-bs-theme="dark" [class.main]="!displayActive">
+    <ul class="navbar-nav">
+      <li class="nav-item-logo">
+        <a routerLink="home" routerLinkActive="active" class="nav-link">
+            <img src="../assets/smart_it_partner_logo.jpeg" alt="Home" class="nav-icon" />
+        </a>
+      </li>
+
+        <li class="nav-item">
+            <a routerLink="show-all-stagiaires" routerLinkActive="active" class="nav-link">Liste de Stagiaires</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="add-stagiaire" routerLinkActive="active" class="nav-link">Ajouter stagiaire</a>
+        </li>
+        <li class="nav-item logout" >
+            <a routerLink="login" routerLinkActive="active" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+
+<footer class = "footer" [class.main]="!displayActive">
+    <div class = "container">
+        <span>Système de gestion de stagiaires</span>
+    </div>
+</footer>
+
